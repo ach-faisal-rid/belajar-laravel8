@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use illuminate\Support\Fascades\Storage;
@@ -20,20 +21,8 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/post', function () {
-
-    return view('posts', [
-        "title" => "Post",
-        "posts" => Post::all()
-    ]);
-});
-
-Route::get('posts/{slug}', function($slug) {
-    return view('post', [
-        'title' => 'single post',
-        'post' => Post::find($slug)
-    ]);
-});
+Route::get('/post', [PostController::class, 'index']);
+Route::get('posts/{slug}', [PostController::class, 'show']);
 
 Route::get('/welcome', function () {
     return view('welcome');
