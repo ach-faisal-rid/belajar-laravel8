@@ -1,18 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 use illuminate\Support\Fascades\Storage;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('home', [
@@ -29,66 +20,18 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/blog', function () {
-    $blog_post = [
-        [
-            'title' => 'sapa',
-            'slug' => 'sapa',
-            'author' => 'budi',
-            'body' => 'hallo apa kabar ?',
-        ],
-        [
-            'title' => 'balas',
-            'slug' => 'balas',
-            'author' => 'dimas',
-            'body' => 'baik, wkwk',
-        ],
-        [
-            'title' => 'konfirmasi',
-            'slug' => 'konfirmasi',
-            'author' => 'firman',
-            'body' => 'jam sekolah mau mulai nih ?',
-        ],
+Route::get('/post', function () {
 
-    ];
     return view('posts', [
         "title" => "Post",
-        "posts" => $blog_post
+        "posts" => Post::all()
     ]);
 });
 
 Route::get('posts/{slug}', function($slug) {
-    $blog_post = [
-        [
-            'title' => 'sapa',
-            'slug' => 'sapa',
-            'author' => 'budi',
-            'body' => 'hallo apa kabar ?',
-        ],
-        [
-            'title' => 'balas',
-            'slug' => 'balas',
-            'author' => 'dimas',
-            'body' => 'baik, wkwk',
-        ],
-        [
-            'title' => 'konfirmasi',
-            'slug' => 'konfirmasi',
-            'author' => 'firman',
-            'body' => 'jam sekolah mau mulai nih ?',
-        ],
-    ];
-
-    $new_post = [];
-    foreach ($blog_post as $post) {
-        if($post['slug']=== $slug) {
-            $new_post = $post;
-        }
-    }
-
     return view('post', [
         'title' => 'single post',
-        'post' => $new_post
+        'post' => Post::find($slug)
     ]);
 });
 
