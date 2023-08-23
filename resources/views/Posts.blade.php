@@ -2,10 +2,18 @@
 @section('container')
     <h1>apa yang baru ? </h1>
     @foreach ($posts as $post)
-        <h2 class="mb-5">
-            <a href="/posts/{{ $post->slug }}">{{ $post->title }}</a>
-        </h2>
-        {{ $post->body }}
+        <article class="mb-5 border-bottom pb-5">
+            <h2 class="mb-5">
+                <a href="/posts/{{ $post->slug }}"
+                class="text-decoration-none">{{ $post->title }}</a>
+            </h2>
+            <p>by. faisal in
+                <a href="/categories/{{ $post->category->slug }}"
+                class="text-decoration-none">{{ $post->category->name }}</a>
+            </p>
+            {{ $post->body }}
+            <a href="/posts/{{ $post->slug }}">read more..</a>
+        </article>
     @endforeach
 </body>
 @endsection
