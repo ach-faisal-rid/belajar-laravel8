@@ -58,8 +58,37 @@ Route::get('/blog', function () {
 });
 
 Route::get('posts/{slug}', function($slug) {
+    $blog_post = [
+        [
+            'title' => 'sapa',
+            'slug' => 'sapa',
+            'author' => 'budi',
+            'body' => 'hallo apa kabar ?',
+        ],
+        [
+            'title' => 'balas',
+            'slug' => 'balas',
+            'author' => 'dimas',
+            'body' => 'baik, wkwk',
+        ],
+        [
+            'title' => 'konfirmasi',
+            'slug' => 'konfirmasi',
+            'author' => 'firman',
+            'body' => 'jam sekolah mau mulai nih ?',
+        ],
+    ];
+
+    $new_post = [];
+    foreach ($blog_post as $post) {
+        if($post['slug']=== $slug) {
+            $new_post = $post;
+        }
+    }
+
     return view('post', [
-        'title' => 'single post'
+        'title' => 'single post',
+        'post' => $new_post
     ]);
 });
 
