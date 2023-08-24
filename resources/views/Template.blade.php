@@ -23,9 +23,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link {{ ($title === "Home") ?  'active' : "" }}" href="/">Home</a>
-                <a class="nav-link {{ ($title === "Post") ?  'active' : "" }}" href="/post">Posts</a>
-                <a class="nav-link {{ ($title === "About") ?  'active' : "" }}" href="/about">About</a>
+                <a class="nav-link {{ ($active === "home") ?  'active' : "" }}" href="/">Home</a>
+                <a class="nav-link {{ ($active === "post") ?  'active' : "" }}" href="/post">Blog</a>
+                <a class="nav-link {{ ($active === "categories") ?  'active' : "" }}" href="/categories">categories</a>
+                <a class="nav-link {{ ($active === "about") ?  'active' : "" }}" href="/about">About</a>
             </div>
         </div>
     </div>
