@@ -1,6 +1,6 @@
 @extends('template')
 @section('container')
-    <h1>apa yang baru ? </h1>
+    <h1>apa yang baru ? {{ $title }} </h1>
     @foreach ($posts as $post)
         <article class="mb-5 border-bottom pb-5">
             <h2 class="mb-5">
