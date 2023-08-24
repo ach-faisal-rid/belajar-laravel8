@@ -22,6 +22,11 @@ class DatabaseSeeder extends Seeder
             'email' => "faisalachmad.ff@gmail.com",
             'password' => bcrypt('123456')
         ]);
+        User::create([
+            'name' => "Teguh firman gautama",
+            'email' => "teguh.fg@gmail.com",
+            'password' => bcrypt('123456')
+        ]);
         Category::create([
             'name' => "Web Programming",
             'slug' => "web-programming"
@@ -49,6 +54,26 @@ class DatabaseSeeder extends Seeder
             quod voluptate. Omnis, dolor",
             'category_id' => 2,
             'user_id' => 1
+        ]);
+        Post::create([
+            'title' => "Judul Ketiga",
+            'slug' => "judul-ke-tiga",
+            'excerpt' => "lorem impsn",
+            'body' => "enim at in obcaecati tempora beatae laudantium voluptate aperiam
+            excepturi delectus recusandae nemo aliquam deleniti temporibus itaque? Modi,
+            quod voluptate. Omnis, dolor",
+            'category_id' => 2,
+            'user_id' => 2
+        ]);
+        Post::create([
+            'title' => "Judul keempat",
+            'slug' => "judul-ke-empat",
+            'excerpt' => "lorem impsn",
+            'body' => "enim at in obcaecati tempora beatae laudantium voluptate aperiam
+            excepturi delectus recusandae nemo aliquam deleniti temporibus itaque? Modi,
+            quod voluptate. Omnis, dolor",
+            'category_id' => 2,
+            'user_id' => 2
         ]);
 
     }
