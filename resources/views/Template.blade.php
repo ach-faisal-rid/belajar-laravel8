@@ -22,9 +22,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <?php
-                $active = basename($_SERVER['PHP_SELF']);
-            ?>
+            
             <div class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link {{ ($active === "home") ?  'active' : "" }}" href="/">Home</a>
