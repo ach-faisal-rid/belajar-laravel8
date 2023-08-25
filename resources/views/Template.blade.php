@@ -22,11 +22,22 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <?php
+                $active = basename($_SERVER['PHP_SELF']);
+            ?>
             <div class="navbar-nav">
-                <a class="nav-link {{ ($active === "home") ?  'active' : "" }}" href="/">Home</a>
-                <a class="nav-link {{ ($active === "post") ?  'active' : "" }}" href="/post">Blog</a>
-                <a class="nav-link {{ ($active === "categories") ?  'active' : "" }}" href="/categories">categories</a>
-                <a class="nav-link {{ ($active === "about") ?  'active' : "" }}" href="/about">About</a>
+                <li class="nav-item">
+                    <a class="nav-link {{ ($active === "home") ?  'active' : "" }}" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ ($active === "post") ?  'active' : "" }}" href="/post">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ ($active === "categories") ?  'active' : "" }}" href="/categories">categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ ($active === "about") ?  'active' : "" }}" href="/about">About</a>
+                </li>
             </div>
         </div>
     </div>
