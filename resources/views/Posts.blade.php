@@ -1,6 +1,19 @@
 @extends('template')
 @section('container')
-    <h1>apa yang baru ? {{ $title }} </h1>
+    <h1 class="mb-5 text-center">apa yang baru ? {{ $title }} </h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/post">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control"
+                    placeholder="Search.." name="search" value="{{ request('search') }}">
+                    <button class="btn btn-secondary" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     @if ($posts->count())
     <div class="card mb-3">
         <img src="https://source.unsplash.com/1200x400/?{{ $posts[0]->category->name }}"
@@ -22,9 +35,6 @@
             <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-primary">read more</a>
         </div>
     </div>
-    @else
-        <p class="text-center fs-4">no post found.</p>
-    @endif
 
     <div class="container">
         <div class="row">
@@ -51,4 +61,9 @@
             @endforeach
         </div>
     </div>
+
+    @else
+        <p class="text-center fs-4">no post found.</p>
+    @endif
+
 @endsection
