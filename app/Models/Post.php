@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PharIo\Manifest\Author;
 
 class Post extends Model
 {
@@ -25,6 +26,12 @@ class Post extends Model
                 $query->where('slug', $category);
             });
         });
+
+        $query->when($filters['Author'] ?? false, fn($query, $author)=>
+            $query->whereHas('author', fn($query) =>
+                $query->where('username', $author)
+            )
+        );
     }
 
     public function category() {

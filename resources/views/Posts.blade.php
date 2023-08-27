@@ -1,4 +1,5 @@
 @extends('template')
+
 @section('container')
     <h1 class="mb-5 text-center">apa yang baru ? {{ $title }} </h1>
 
@@ -7,6 +8,9 @@
             <form action="/post">
                 @if(request('category'))
                 <input type="hidden" name="category" value="{{ request('category') }}">
+                @endif
+                @if(request('author'))
+                <input type="hidden" name="author" value="{{ request('author') }}">
                 @endif
                 <div class="input-group mb-3">
                     <input type="text" class="form-control"
@@ -30,7 +34,7 @@
             </h3>
             <p>
                 <small class="text-muted">
-                    by. <a href="/authors/{{ $posts[0]->author->username }}"
+                    by. <a href="/post?author={{ $posts[0]->author->username }}"
                     class="text-decoration-none">{{ $posts[0]->author->name }}</a>
                     in <a href="/post?category={{ $posts[0]->category->slug }}"
                     class="text-decoration-none">{{ $posts[0]->category->name }}</a>
@@ -57,7 +61,7 @@
                         <p class="card-title">{{ $post->title }}</p>
                         <p>
                             <small class="text-muted">
-                                by. <a href="/authors/{{ $post->author->username }}"
+                                by. <a href="/post?author={{ $post->author->username }}"
                                 class="text-decoration-none">{{ $post->author->name }}</a>
                                 {{ $post->created_at->diffForHumans() }}
                             </small>
