@@ -6,7 +6,7 @@
 
     <div class="col-md-4">
         <div class="card">
-            <a href="/categories/{{ $category->slug }}">
+            <a href="/post?category={{ $category->slug }}">
                 <div class="card bg-dark text-white">
                     <img src="https://source.unsplash.com/500x500/?{{ $category->name }}"
                     class="card-img" alt="{{ $category->name }}">
