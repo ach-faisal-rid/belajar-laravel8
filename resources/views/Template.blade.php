@@ -12,6 +12,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -32,7 +33,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <a href="/login" class="nav-link">
+                <a href="/login" class="nav-link {{ ($active === "login") ?  'active' : "" }}">
                     <i class="bi bi-box-arrow-in-right"></i>
                     Login
                 </a>
