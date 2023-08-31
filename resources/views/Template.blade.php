@@ -39,10 +39,18 @@
                 welcome back, {{ auth()->user()->name }}
                 </a>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">my dashboard</a></li>
+                <li><a class="dropdown-item" href="/dashboard">
+                    <i class="bi bi-layout-wtf"></i>
+                    my dashboard</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">logout</a></li>
-                </ul>
+                <li>
+                    <form action="/logout" method="post">
+                        <button type="submit" class="dropdown-item">
+                            <i class="bi bi-box-arrow-right"></i>
+                            logout
+                        </button>
+                    </form>
+                </li>
             </li>
             @else
             <a href="/login" class="nav-link {{ ($active === "login") ?  'active' : "" }}">
