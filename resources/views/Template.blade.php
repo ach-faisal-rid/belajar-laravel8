@@ -15,7 +15,23 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    @include('template.layouts.sidebar')
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">stack</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link {{ ($title === "Home") ?  'active' : "" }}" href="/">Home</a>
+                <a class="nav-link {{ ($title === "Post") ?  'active' : "" }}" href="/post">Posts</a>
+                <a class="nav-link {{ ($title === "About") ?  'active' : "" }}" href="/about">About</a>
+            </div>
+        </div>
+    </div>
+</nav>
 <div class="container mt-4">
     @yield('container')
 </div>
