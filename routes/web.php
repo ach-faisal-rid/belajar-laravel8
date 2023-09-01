@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardPostController;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
@@ -8,8 +9,6 @@ use App\Http\Controllers\PostController;
 use illuminate\Support\Fascades\Storage;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('home', [
@@ -63,6 +62,8 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', function(){
     return view('dashboard.index');
 })->middleware('auth');
+Route::resource('/dashboard/myposts', DashboardPostController::class)
+->middleware('auth');
 
 Route::get('/welcome', function () {
     return view('welcome');

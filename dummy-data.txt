@@ -29,21 +29,3 @@ Post::create([
     excepturi delectus recusandae nemo aliquam deleniti temporibus itaque? Modi,
     quod voluptate. Omnis, dolor eveniet nemo aliquam amet iusto."
 ])
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, omnis blanditiis natus nisi enim praesentium adipisci magnam ab iure consequuntur distinctio, recusandae beatae reprehenderit ad earum consequatur. Esse sit ratione fugit eligendi quisquam repellendus corrupti possimus beatae! Dicta sit ab optio, natus necessitatibus laboriosam eligendi, pariatur, voluptatibus voluptates dolore a. Voluptatem numquam molestias itaque id modi animi officiis possimus quis consequatur quisquam, recusandae aliquid! Rerum aliquam voluptatem voluptates sed. Adipisci fuga, sapiente atque, enim at in obcaecati tempora beatae laudantium voluptate aperiam excepturi delectus recusandae nemo aliquam deleniti temporibus itaque? Modi, quod voluptate. Omnis, dolor eveniet nemo aliquam amet iusto.
-
-@error('name')
-                    <div class="invalid-feedback">
-                    Please choose a name.
-                    </div>
-                @enderror
-@error('name') is-invalid @enderror
-
-        $request->validate([
-            'name' => 'requred|max:255',
-            'username' => ['required','min:3','max:255','unique:users'],
-            'email' => 'required|min:5|max:255',
-            'password' => 'required|min:5|max:255'
-        ]);
-
-        dd('register berhasil');
