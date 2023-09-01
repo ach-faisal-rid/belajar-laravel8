@@ -62,7 +62,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', function(){
     return view('dashboard.index');
 })->middleware('auth');
-Route::resource('/dashboard/myposts', DashboardPostController::class)
+Route::resource('/dashboard/posts', DashboardPostController::class)
 ->middleware('auth');
 
 Route::get('/welcome', function () {

@@ -4,20 +4,23 @@
     <div class="row justify mb-5">
         <div class="col-lg-8">
             <h1 class="mb-3">{{ $post->title }}</h1>
-            <p>by.
-                <a href="/post?author={{ $post->author->username }}"
-                class="text-decoration-none">{{ $post->author->name }}</a> in
-                <a href="/post?category={{ $post->category->slug }}"
-                class="text-decoration-none">{{ $post->category->name }}</a>
-            </p>
+
+            <a href="/dashboard/posts" class="btn btn-success">
+                <span data-feather="arrow-left"></span>
+                back to my posts
+            </a>
+            <a href="" class="btn btn-warning">
+                <span data-feather="edit"></span>
+            </a>
+            <a href="" class="btn btn-danger">
+                <span data-feather="alert-triangle"></span>
+            </a>
 
             <img src="https://source.unsplash.com/800x400/?{{ $post->category->name }}"
             alt="{{ $post->category->name }}" class="img-fluid">
             <article class="my-3 fs-5">
                 {!! $post->body !!}
             </article>
-
-            <a href="/post">back</a>
         </div>
     </div>
 </div>
